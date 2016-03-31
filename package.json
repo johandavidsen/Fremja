@@ -4,8 +4,13 @@
   "description": "A simple todo app.",
   "main": "index.js",
   "scripts": {
+    "start": "node --es_staging index.js",
     "test": "test"
   },
   "author": "Johan Davidsen",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4",
+    "mongoose": "^4.4.10"
+  }
 }
