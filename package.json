@@ -1,0 +1,11 @@
+{
+  "name": "gera",
+  "version": "0.1.0",
+  "description": "A simple todo app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Johan Davidsen",
+  "license": "MIT"
+}
