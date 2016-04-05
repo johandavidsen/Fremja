@@ -1,0 +1,1 @@
+export Alt from './Alt';
