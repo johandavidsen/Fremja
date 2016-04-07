@@ -1,10 +1,10 @@
 {
-  "name": "gera",
+  "name": "fremja",
   "version": "0.1.0",
   "description": "A simple todo app.",
   "main": "index.js",
   "scripts": {
-    "build":"./node_modules/.bin/nodemon --exec npm run start",
+    "build": "./node_modules/.bin/nodemon --exec npm run start",
     "postinstall": "./node_modules/.bin/gulp build:public",
     "start": "node --es_staging index.js",
     "test": "test"
@@ -28,6 +28,7 @@
     "babelify": "^7.2.0",
     "browserify": "^13.0.0",
     "gulp": "^3.9.1",
+    "gulp-less": "^3.0.5",
     "nodemon": "^1.9.1",
     "vinyl-source-stream": "^1.1.0"
   }

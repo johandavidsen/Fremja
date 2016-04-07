@@ -38345,17 +38345,26 @@ var Todo = function (_React$Component) {
 
         _this._deleteTodo = _this._deleteTodo.bind(_this);
         _this._updateTodo = _this._updateTodo.bind(_this);
-
         return _this;
     }
+
+    /**
+     *
+     */
+
 
     _createClass(Todo, [{
         key: '_updateTodo',
         value: function _updateTodo() {
             var object = this.props.object;
-            object.done = this.refs.check.getChecked();
+            object.done = this.refs.check.checked;
             this.props.update(object);
         }
+
+        /**
+         *
+         */
+
     }, {
         key: '_deleteTodo',
         value: function _deleteTodo() {
@@ -38369,18 +38378,22 @@ var Todo = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+
+            var check = _react2.default.createElement('input', { type: 'checkbox', ref: 'check', checked: this.props.object.done, onChange: this._updateTodo });
+
+            var status = "";
+
+            if (this.props.object.done) {
+                status = "checked";
+            }
+
             return _react2.default.createElement(
                 'div',
                 { className: 'row' },
                 _react2.default.createElement(
                     'div',
-                    { className: 'col-lg-2' },
-                    _react2.default.createElement(_reactBootstrap.Input, { type: 'checkbox', ref: 'check', onClick: this._updateTodo })
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'col-lg-8' },
-                    _react2.default.createElement(_reactBootstrap.Input, { type: 'text', value: this.props.object.name, readOnly: true })
+                    { className: 'col-lg-10' },
+                    _react2.default.createElement(_reactBootstrap.Input, { type: 'text', className: status, value: this.props.object.name, readOnly: true, addonBefore: check })
                 ),
                 _react2.default.createElement(
                     'div',
@@ -38487,8 +38500,20 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+/**
+ * @class Todos
+ *
+ * @since 0.1.0
+ * @author Jóhan Davidsen <johan.davidsen@fjakkarin.com>
+ *
+ */
+
 var Todos = function (_React$Component) {
     _inherits(Todos, _React$Component);
+
+    /**
+     *
+     */
 
     function Todos(props) {
         _classCallCheck(this, Todos);
@@ -38499,10 +38524,16 @@ var Todos = function (_React$Component) {
         _this._onChange = _this._onChange.bind(_this);
 
         _this._addTodo = _this._addTodo.bind(_this);
+        _this._onEnter = _this._onEnter.bind(_this);
         _this._updateTodo = _this._updateTodo.bind(_this);
         _this._removeTodo = _this._removeTodo.bind(_this);
         return _this;
     }
+
+    /**
+     *
+     */
+
 
     _createClass(Todos, [{
         key: 'componentDidMount',
@@ -38510,16 +38541,43 @@ var Todos = function (_React$Component) {
             _actions.TodosActions.getAllTodos();
             _stores.TodosStore.listen(this._onChange);
         }
+
+        /**
+         *
+         */
+
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
             _stores.TodosStore.unlisten(this._onChange);
         }
+
+        /**
+         *
+         */
+
     }, {
         key: '_onChange',
         value: function _onChange(todos) {
             this.setState(todos);
         }
+
+        /**
+         *
+         */
+
+    }, {
+        key: '_onEnter',
+        value: function _onEnter(event) {
+            if (event.key === 'Enter') {
+                this._addTodo();
+            }
+        }
+
+        /**
+         *
+         */
+
     }, {
         key: '_addTodo',
         value: function _addTodo() {
@@ -38528,16 +38586,31 @@ var Todos = function (_React$Component) {
             this.refs.todoName.refs['input'].value = '';
             _actions.TodosActions.newTodo(title);
         }
+
+        /**
+         *
+         */
+
     }, {
         key: '_updateTodo',
         value: function _updateTodo(object) {
             _actions.TodosActions.updateTodo(object);
         }
+
+        /**
+         *
+         */
+
     }, {
         key: '_removeTodo',
         value: function _removeTodo(id) {
             _actions.TodosActions.removeTodo(id);
         }
+
+        /**
+         *
+         */
+
     }, {
         key: 'render',
         value: function render() {
@@ -38548,16 +38621,15 @@ var Todos = function (_React$Component) {
             });
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'todo-app' },
                 todos,
                 _react2.default.createElement(
                     'div',
                     { className: 'row' },
-                    _react2.default.createElement('div', { className: 'col-lg-2' }),
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-lg-8' },
-                        _react2.default.createElement(_reactBootstrap.Input, { type: 'text', ref: 'todoName' })
+                        { className: 'col-lg-10' },
+                        _react2.default.createElement(_reactBootstrap.Input, { type: 'text', ref: 'todoName', onKeyPress: this._onEnter })
                     ),
                     _react2.default.createElement(
                         'div',

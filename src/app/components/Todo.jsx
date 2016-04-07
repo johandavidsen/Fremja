@@ -17,15 +17,20 @@ export default class Todo extends React.Component {
         super( props );
         this._deleteTodo = this._deleteTodo.bind(this);
         this._updateTodo = this._updateTodo.bind(this);
-
     }
 
+    /**
+     *
+     */
     _updateTodo(){
         let object = this.props.object;
-        object.done = this.refs.check.getChecked();
+        object.done = this.refs.check.checked;
         this.props.update(object);
     }
 
+    /**
+     *
+     */
     _deleteTodo(){
         this.props.delete(this.props.object._id)
     }
@@ -34,13 +39,21 @@ export default class Todo extends React.Component {
      *
      */
     render( ){
+
+        let check = (
+            <input type="checkbox" ref="check" checked={ this.props.object.done } onChange={ this._updateTodo } />
+        );
+
+        let status = "";
+
+        if(this.props.object.done){
+            status = "checked";
+        }
+
         return (
             <div className="row">
-                <div className="col-lg-2">
-                    <Input type="checkbox" ref="check" onClick={ this._updateTodo } />
-                </div>
-                <div className="col-lg-8">
-                    <Input type="text" value={this.props.object.name} readOnly ></Input>
+                <div className="col-lg-10">
+                    <Input type="text" className={status} value={this.props.object.name} readOnly addonBefore={check} ></Input>
                 </div>
                 <div className="col-lg-2">
                     <Button bsStyle="link" onClick={ this._deleteTodo }>
