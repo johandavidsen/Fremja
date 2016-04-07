@@ -7,7 +7,11 @@ let Todo        = require('./model');
 let api = express.Router();
 
 // Connect to the mongodb.
-mongoose.connect('mongodb://192.168.99.100:27017')
+if(process.env.MONGODB){
+    mongoose.connect(process.env.MONGODB);
+} else {
+    mongoose.connect('mongodb://192.168.99.100:27017');
+}
 
 api.get('/', (req, res) => {
     res.json({ message: 'Welcome to the Todo API.' });
