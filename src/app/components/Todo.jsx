@@ -2,7 +2,10 @@ import React from 'react';
 import { Input, Button } from 'react-bootstrap';
 
 /**
- * Todo
+ * @class Todo
+ *
+ * This is the Todo component, which contains the properties and the methods for
+ * the different Todos.
  *
  * @since 0.1.0
  * @author Jóhan Davidsen <johan.davidsen@fjakkarin.com>

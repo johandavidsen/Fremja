@@ -1,8 +1,22 @@
 import { Alt } from '../lib';
 import request from 'superagent';
 
+/**
+ * @class TodosActions
+ *
+ * This class contains all the actions for the TodoStore. The actions use the
+ * superagent lib to make calls to the backend api.
+ *
+ * @since 0.1.0
+ * @author Jóhan Davidsen <johan.davidsen@fjakkarin.com>
+ *
+ */
 class TodosActions {
 
+    /**
+     * Calls the /api/todos and then calls the notifyStore action with the returned
+     * results.
+     */
     getAllTodos(){
         var todos = [];
         var self = this;
@@ -19,8 +33,12 @@ class TodosActions {
                 }
             }
         );
+        return;
     }
 
+    /**
+     * Create a new Todo on the /api/ and calls the getAllTodos method.
+     */
     newTodo( title ){
         var self = this;
         request.post('/api/todos')
@@ -30,6 +48,9 @@ class TodosActions {
             });
     }
 
+    /**
+     * Update a particular Todo.
+     */
     updateTodo( object ){
         var self = this;
         request.put('/api/todos/' + object._id)
@@ -39,14 +60,20 @@ class TodosActions {
             });
     }
 
+    /**
+     * Remove a particular Todo.
+     */
     removeTodo( id ){
         var self = this;
         request.del('/api/todos/' + id)
             .end((err, res) => {
-                self.getAllTodos();
+                self.actions.getAllTodos();
             });
     }
 
+    /**
+     * Notify the store.
+     */
     notifyStore( todos ){
         return todos;
     }

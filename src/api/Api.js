@@ -4,6 +4,7 @@ let mongoose    = require('mongoose');
 
 let Todo        = require('./model');
 
+// Create the Route.
 let api = express.Router();
 
 // Connect to the mongodb.
@@ -13,10 +14,16 @@ if(process.env.MONGODB){
     mongoose.connect('mongodb://192.168.99.100:27017');
 }
 
+/**
+ *
+ */
 api.get('/', (req, res) => {
     res.json({ message: 'Welcome to the Todo API.' });
 });
 
+/**
+ *
+ */
 api.route('/todos')
 
     .get((req, res) => {
@@ -45,6 +52,9 @@ api.route('/todos')
 
     });
 
+/**
+ *
+ */
 api.route('/todos/:todo_id')
 
     .get((req, res) => {

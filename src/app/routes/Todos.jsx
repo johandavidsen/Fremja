@@ -9,6 +9,8 @@ import { TodosStore } from '../stores';
 /**
  * @class Todos
  *
+ * The main route for the Todo application.
+ *
  * @since 0.1.0
  * @author Jóhan Davidsen <johan.davidsen@fjakkarin.com>
  *
