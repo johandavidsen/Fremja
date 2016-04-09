@@ -66,7 +66,7 @@ class TodosActions {
         var self = this;
         request.del('/api/todos/' + id)
             .end((err, res) => {
-                self.actions.getAllTodos();
+                self.getAllTodos();
             });
     }
 

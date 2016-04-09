@@ -55,10 +55,10 @@ export default class Todo extends React.Component {
 
         return (
             <div className="row">
-                <div className="col-lg-10">
+                <div className="col-lg-10 todo-input">
                     <Input type="text" className={status} value={this.props.object.name} readOnly addonBefore={check} ></Input>
                 </div>
-                <div className="col-lg-2">
+                <div className="col-lg-2 todo-button">
                     <Button bsStyle="link" onClick={ this._deleteTodo }>
                         <i className="fa fa-minus"></i>
                     </Button>
