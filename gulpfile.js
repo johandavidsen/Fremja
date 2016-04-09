@@ -4,7 +4,7 @@ var gulp        = require('gulp');
 var less        = require('gulp-less');
 var source      = require('vinyl-source-stream');
 
-gulp.task('build:public', ['styleDemo'], function() {
+gulp.task('build:public', ['style'], function() {
     return browserify({
             extensions: [".jsx", ".js", ".json"]
         }).add(
@@ -17,7 +17,7 @@ gulp.task('build:public', ['styleDemo'], function() {
         .pipe(gulp.dest('./public/js/'));
 });
 
-gulp.task("styleDemo", function(){
+gulp.task("style", function(){
     return gulp.src('src/stylesheet/main.less')
         .pipe(less())
         .pipe(gulp.dest('./public/style'));
