@@ -19,6 +19,6 @@ A third option is to use [Docker](https://www.docker.com/) to setup the applicat
 
 ## Using the application
 
-Now depending on how you installed the application, it can be found on the URL:
+Now depending on your [Docker](https://www.docker.com/) installation, the application can be found on the URL:
 
     http://<ip>:3000
