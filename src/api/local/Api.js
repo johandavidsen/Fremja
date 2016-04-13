@@ -17,13 +17,6 @@ if(process.env.MONGODB){
 /**
  *
  */
-api.get('/', (req, res) => {
-    res.json({ message: 'Welcome to the Todo API.' });
-});
-
-/**
- *
- */
 api.route('/todos')
 
     .get((req, res) => {
