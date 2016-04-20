@@ -94,6 +94,7 @@ export default class Todos extends React.Component {
         let todos = this.state.todos.map(( element ) => {
             return (<Todo key={element._id} object={ element } update={this._updateTodo} delete={ this._removeTodo } />);
         });
+
         return(
             <div className="todo-app">
                 {todos}

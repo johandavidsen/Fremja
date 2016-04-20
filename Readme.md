@@ -25,9 +25,9 @@ Now depending on your [Docker](https://www.docker.com/) installation, the applic
 
 ## Versions
 
-### 0.3.0 Kick-off-continues (Currently underway)
+<!-- ### 0.3.0 Kick-off-continues (Currently underway) -->
 
-* Access tasks from the Google Task list.
+<!-- * Access tasks from the Google Task list. -->
 
 ### 0.2.0 Kick-off
 
