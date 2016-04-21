@@ -17,8 +17,8 @@ import { SignIn, Todos, PageNotFound } from './routes';
 window.onload = () => {
     ReactDOM.render(
         <Router history={hashHistory}>
-            <Route path="/" component={ SignIn } >
-                <Route path="/todo" component={ Todos } />
+            <Route path="/" component={ Todos } >
+                <Route path="/todo" component={ SignIn } />
             </Route>
              <Route path="*" component={ PageNotFound } />
         </Router>

@@ -14,7 +14,11 @@ import { Input, Button } from 'react-bootstrap';
 export default class Todo extends React.Component {
 
     /**
+     * @method constructor
      *
+     * The constructor binds the different methods to the class.
+     *
+     * @since 0.1.0
      */
     constructor( props ){
         super( props );
@@ -23,6 +27,11 @@ export default class Todo extends React.Component {
     }
 
     /**
+     * @method _updateTodo
+     *
+     * This method is used to update the status of the Todo.
+     *
+     * @since 0.1.0
      *
      */
     _updateTodo(){
@@ -32,6 +41,11 @@ export default class Todo extends React.Component {
     }
 
     /**
+     * @method _deleteTodo
+     *
+     * This method delets this Todo.
+     *
+     * @since 0.1.0
      *
      */
     _deleteTodo(){
@@ -39,6 +53,11 @@ export default class Todo extends React.Component {
     }
 
     /**
+     * @method render
+     *
+     * This method returns a valid JSX object.
+     *
+     * @since 0.1.0
      *
      */
     render( ){
@@ -68,11 +87,17 @@ export default class Todo extends React.Component {
     }
 }
 
+/**
+ * Specifies the property types.
+ */
 Todo.propTypes = {
     object: React.PropTypes.object,
     callback: React.PropTypes.func
 }
 
+/**
+ * Set the default properties.
+ */
 Todo.defaultProps = {
     object: {},
     callback: () => {}
