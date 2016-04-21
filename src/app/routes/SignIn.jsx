@@ -1,8 +1,6 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
-import request from 'superagent';
-
 /**
  * @class SignIn
  *
@@ -18,14 +16,7 @@ export default class SignIn extends React.Component {
      */
     constructor( props ){
         super(props);
-    }
-
-    /**
-     *
-     */
-    _signIn(){
-        request.get("https://www.dropbox.com/oauth2/authorize?response_type=token+client_id=rvupm3oi3e4pujo+redirect_uri=http://localhost:3000");
-
+        this.state = {};
     }
 
     /**

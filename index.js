@@ -2,7 +2,6 @@
 let express     = require('express');
 let session     = require('express-session');
 let bodyParser  = require('body-parser');
-let passport    = require('passport');
 
 let api         = require('./src/api');
 

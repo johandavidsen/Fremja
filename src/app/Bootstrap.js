@@ -1,10 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory } from 'react-router'
 
-import { SignIn, Todos } from './routes';
+import { SignIn, Todos, PageNotFound } from './routes';
 
-
+/**
+ * @function Window.onload
+ *
+ * This function is used by the Browserify library to build the client-side
+ * application.
+ *
+ * @since 0.1.0
+ * @author Jóhan Davidsen <johan.davidsen@fjakkarin.com>
+ *
+ */
 window.onload = () => {
-    ReactDOM.render(<SignIn />, document.getElementById('container'));
-    // ReactDOM.render(<Todos />, document.getElementById('container'));
+    ReactDOM.render(
+        <Router history={hashHistory}>
+            <Route path="/" component={ SignIn } >
+                <Route path="/todo" component={ Todos } />
+            </Route>
+             <Route path="*" component={ PageNotFound } />
+        </Router>
+        , document.getElementById('container')
+    );
 }

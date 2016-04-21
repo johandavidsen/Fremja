@@ -11,6 +11,8 @@ import { TodosStore } from '../stores';
  *
  * The main route for the Todo application.
  *
+ * TODO: Should write DefaultProps and PropsValidate.
+ *
  * @since 0.1.0
  * @author Jóhan Davidsen <johan.davidsen@fjakkarin.com>
  *
@@ -18,6 +20,12 @@ import { TodosStore } from '../stores';
 export default class Todos extends React.Component {
 
     /**
+     * @method constructor
+     *
+     * The constructor binds the relevant functions to this class and binds the
+     * state to the TodosStore.
+     *
+     * @since 0.1.0
      *
      */
     constructor( props ){
@@ -32,6 +40,12 @@ export default class Todos extends React.Component {
     }
 
     /**
+     * @method componentDidMount
+     *
+     * This method is called, when the class is mounted on the client. The
+     * method gets all the Todos and sets the listener to the method @see _onChange.
+     *
+     * @since 0.1.0
      *
      */
     componentDidMount(){
@@ -40,6 +54,12 @@ export default class Todos extends React.Component {
     }
 
     /**
+     * @method componentWillUnmount
+     *
+     * This method is called, when the class is unmounted i.e. removed from the
+     * client window. This method stops listening to the TodosStore.
+     *
+     * @since 0.1.0
      *
      */
     componentWillUnmount() {
@@ -47,6 +67,11 @@ export default class Todos extends React.Component {
     }
 
     /**
+     * @method _onChange
+     *
+     * This method is used by the listen event on the TodosStore.
+     *
+     * @since 0.1.0
      *
      */
     _onChange( todos ){
@@ -54,6 +79,12 @@ export default class Todos extends React.Component {
     }
 
     /**
+     * @method _onEnter
+     *
+     * This method is used by the UI -> Input -> onKeyPress and listens for the
+     * event "Enter".
+     *
+     * @since 0.1.0
      *
      */
     _onEnter( event ){
@@ -63,6 +94,13 @@ export default class Todos extends React.Component {
     }
 
     /**
+     * @method _addTodo
+     *
+     * This method takes the value of the UI -> Input and creates a new Todo.
+     *
+     * TODO: Should test the string for valid values.
+     *
+     * @since 0.1.0
      *
      */
     _addTodo(){
@@ -73,6 +111,13 @@ export default class Todos extends React.Component {
     }
 
     /**
+     * @method _updateTodo
+     *
+     * This method updates a particular Todo.
+     *
+     * TODO: Should validate structure of object.
+     *
+     * @since 0.1.0
      *
      */
     _updateTodo( object ){
@@ -80,6 +125,13 @@ export default class Todos extends React.Component {
     }
 
     /**
+     * @method _removeTodo
+     *
+     * This method removs a particular Todo.
+     *
+     * TODO: Should ensure that the ID exists.
+     *
+     * @since 0.1.0
      *
      */
     _removeTodo( id ){
@@ -87,6 +139,11 @@ export default class Todos extends React.Component {
     }
 
     /**
+     * @method render
+     *
+     * This method is called by the React framework and returns a valid JSX structure.
+     *
+     * @since 0.1.0
      *
      */
     render(){
