@@ -22,19 +22,3 @@ A third option is to use [Docker](https://www.docker.com/) to setup the applicat
 Now depending on your [Docker](https://www.docker.com/) installation, the application can be found on the URL:
 
     http://<ip>:3000
-
-## Versions
-
-<!-- ### 0.3.0 Kick-off-continues (Currently underway) -->
-
-<!-- * Access tasks from the Google Task list. -->
-
-### 0.2.0 Kick-off
-
-This is a simple Todo Application with the following features:
-
-* A user can see a list of tasks, so he/she can get an overview of all tasks.
-* A user can add a new task to the list, so he/she doesn't forget it later.
-* A user can mark a task as finished, so he/she can see in the list, that I don’t have to worry about it anymore.
-* A user can remove a task from the list, so it doesn’t confuse his/her overview page, with a task that is not relevant anymore.
-* The user can close his/her browser and come back later and see the todo list.
