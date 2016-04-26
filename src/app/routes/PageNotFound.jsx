@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import { UserActions } from '../actions';
+
 /**
  * @class PageNotFound
  *
@@ -32,8 +34,20 @@ export default class PageNotFound extends React.Component {
      */
     componentDidMount(){
 
-        if(this.props.splat){
-            // TODO: Implement.
+        // There are params passed to this class.
+        if(this.props.params.splat){
+            // Handle params
+            let params =  this.props.params.splat.split("&");
+            // Convert params to object of type key, value.
+            params.forEach( ( element, index, array ) => {
+                let values = element.split("=");
+                element = { key: values[0], value: values[1]};
+                array[index] = element;
+            });
+            // Update store
+            UserActions.setToken(params);
+            // Go to Root.
+            this.context.router.push("/");
         }
     }
 
@@ -49,4 +63,9 @@ export default class PageNotFound extends React.Component {
             </div>
         )
     }
+}
+// The context is passed to the class, such that it is possible to call the
+// router object.
+PageNotFound.contextTypes = {
+    router: React.PropTypes.object.isRequired
 }

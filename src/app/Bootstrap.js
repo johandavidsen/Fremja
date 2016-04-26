@@ -1,8 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory } from 'react-router'
+import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 import { SignIn, Todos, PageNotFound } from './routes';
+
+import { UserStore } from './stores';
+
+// Little authorization function.
+function requireAuth(nextState, replace) {
+
+    if (UserStore.getState().accessToken === null) {
+        replace('/signin');
+    }
+}
 
 /**
  * @function Window.onload
@@ -17,8 +27,9 @@ import { SignIn, Todos, PageNotFound } from './routes';
 window.onload = () => {
     ReactDOM.render(
         <Router history={hashHistory}>
-            <Route path="/" component={ Todos } >
-                <Route path="/todo" component={ SignIn } />
+            <Route path="/" >
+                <IndexRoute component={ Todos } onEnter={requireAuth} />
+                <Route path="/signin" component={ SignIn } />
             </Route>
              <Route path="*" component={ PageNotFound } />
         </Router>

@@ -13,7 +13,7 @@ class UserActions {
      *
      */
     login(){
-    
+
     }
 
     /**
@@ -21,6 +21,16 @@ class UserActions {
      */
     localLogin(){
 
+    }
+
+    /**
+     * @method
+     *
+     * @param {Array} params - An array, which holds the objects of type: key, value.
+     *
+     */
+    setToken( params ){
+        
     }
 
     /**
