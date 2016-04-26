@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button } from 'react-bootstrap';
+import { FormControl, Button } from 'react-bootstrap';
 
 import { Todo } from '../components';
 
@@ -157,7 +157,7 @@ export default class Todos extends React.Component {
                 {todos}
                 <div className="row">
                     <div className="col-lg-10 todo-input">
-                        <Input type="text" ref="todoName" placeholder="Enter todo" onKeyPress={this._onEnter}></Input>
+                        <FormControl type="text" ref="todoName" placeholder="Enter todo" onKeyPress={this._onEnter}></FormControl>
                     </div>
                     <div className="col-lg-2 todo-button" >
                         <Button bsStyle="link" onClick={this._addTodo}>

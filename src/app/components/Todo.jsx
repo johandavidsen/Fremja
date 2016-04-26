@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button } from 'react-bootstrap';
+import { FormControl, Button } from 'react-bootstrap';
 
 /**
  * @class Todo
@@ -63,7 +63,7 @@ export default class Todo extends React.Component {
     render( ){
 
         let check = (
-            <input type="checkbox" ref="check" checked={ this.props.object.done } onChange={ this._updateTodo } />
+            <FormControl type="checkbox" ref="check" checked={ this.props.object.done } onChange={ this._updateTodo } />
         );
 
         let status = "";
@@ -75,7 +75,7 @@ export default class Todo extends React.Component {
         return (
             <div className="row">
                 <div className="col-lg-10 todo-input">
-                    <Input type="text" className={status} value={this.props.object.name} readOnly addonBefore={check} ></Input>
+                    <FormControl type="text" className={status} value={this.props.object.name} readOnly addonBefore={check} ></FormControl>
                 </div>
                 <div className="col-lg-2 todo-button">
                     <Button bsStyle="link" onClick={ this._deleteTodo }>
