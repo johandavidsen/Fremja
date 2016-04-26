@@ -10,6 +10,7 @@ import request from 'superagent';
 class UserActions {
 
     /**
+     * @method login
      *
      */
     login(){
@@ -17,6 +18,7 @@ class UserActions {
     }
 
     /**
+     * @method localLogin
      *
      */
     localLogin(){
@@ -24,16 +26,17 @@ class UserActions {
     }
 
     /**
-     * @method
+     * @method setToken
      *
      * @param {Array} params - An array, which holds the objects of type: key, value.
      *
      */
     setToken( params ){
-        
+
     }
 
     /**
+     * @method refreshToken
      *
      */
     refreshToken(){
@@ -41,6 +44,7 @@ class UserActions {
     }
 
     /**
+     * @method logout
      *
      */
     logout(){
