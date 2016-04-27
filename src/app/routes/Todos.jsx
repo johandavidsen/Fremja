@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, Button } from 'react-bootstrap';
+import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
 import { Todo } from '../components';
 
@@ -31,10 +31,13 @@ export default class Todos extends React.Component {
     constructor( props ){
         super( props );
         this.state = TodosStore.getState();
+        this.state.newTodo = "";
+
         this._onChange = this._onChange.bind(this);
 
         this._addTodo = this._addTodo.bind(this);
         this._onEnter = this._onEnter.bind(this);
+        this._inputChange = this._inputChange.bind(this);
         this._updateTodo = this._updateTodo.bind(this);
         this._removeTodo = this._removeTodo.bind(this);
     }
@@ -89,8 +92,17 @@ export default class Todos extends React.Component {
      */
     _onEnter( event ){
         if(event.key === 'Enter'){
-            this._addTodo();
+            let todo = this.state.newTodo;
+            TodosActions.newTodo( todo );
+            this.setState({ newTodo: ""});
         }
+    }
+
+    /**
+     *
+     */
+    _inputChange( event ){
+        this.setState({ newTodo: event.target.value});
     }
 
     /**
@@ -103,11 +115,11 @@ export default class Todos extends React.Component {
      * @since 0.1.0
      *
      */
-    _addTodo(){
-        let title = this.refs.todoName.getValue();
-        // Clear value of input.
-        this.refs.todoName.refs['input'].value = '';
-        TodosActions.newTodo(title);
+    _addTodo( value ){
+        // Use the newTodo state value.
+        let todo = this.state.newTodo;
+        TodosActions.newTodo( todo );
+        this.setState({ newTodo: ""});
     }
 
     /**
@@ -157,7 +169,15 @@ export default class Todos extends React.Component {
                 {todos}
                 <div className="row">
                     <div className="col-lg-10 todo-input">
-                        <FormControl type="text" ref="todoName" placeholder="Enter todo" onKeyPress={this._onEnter}></FormControl>
+                        <FormGroup controlId="todoName">
+                            <FormControl
+                                type="text"
+                                placeholder="Enter todo"
+                                value={this.state.newTodo}
+                                onKeyPress={this._onEnter}
+                                onChange={this._inputChange}>
+                            </FormControl>
+                        </FormGroup>
                     </div>
                     <div className="col-lg-2 todo-button" >
                         <Button bsStyle="link" onClick={this._addTodo}>

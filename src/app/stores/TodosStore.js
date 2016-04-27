@@ -17,7 +17,7 @@ class TodosStore {
     constructor(){
         var self = this;
         this.bindListeners({
-            setTodos: TodosActions.notifyStore
+            setTodos: TodosActions.NOTIFY_STORE
         });
         this.on('init', function(){
             self.todos = [];
@@ -28,7 +28,7 @@ class TodosStore {
      * Updates the stores todo collection.
      */
     setTodos( todos ){
-        this.todos = todos;
+        this.todos = todos.array;
     }
 }
 
