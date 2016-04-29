@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, Button } from 'react-bootstrap';
+import { Form, FormGroup, FormControl, Checkbox, Button } from 'react-bootstrap';
 
 /**
  * @class Todo
@@ -22,6 +22,7 @@ export default class Todo extends React.Component {
      */
     constructor( props ){
         super( props );
+        this.state = this.props.object;
         this._deleteTodo = this._deleteTodo.bind(this);
         this._updateTodo = this._updateTodo.bind(this);
     }
@@ -35,9 +36,8 @@ export default class Todo extends React.Component {
      *
      */
     _updateTodo(){
-        let object = this.props.object;
-        object.done = this.refs.check.checked;
-        this.props.update(object);
+        this.setState({ done: !this.state.done });
+        this.props.update(this.state);
     }
 
     /**
@@ -62,20 +62,20 @@ export default class Todo extends React.Component {
      */
     render( ){
 
-        let check = (
-            <FormControl type="checkbox" ref="check" checked={ this.props.object.done } onChange={ this._updateTodo } />
-        );
-
         let status = "";
-
-        if(this.props.object.done){
+        if(this.state.done){
             status = "checked";
         }
 
         return (
             <div className="row">
                 <div className="col-lg-10 todo-input">
-                    <FormControl type="text" className={status} value={this.props.object.name} readOnly addonBefore={check} ></FormControl>
+                    <Form inline>
+                        <FormGroup>
+                            <Checkbox inline checked={ this.state.done } onChange={ this._updateTodo } ></Checkbox>
+                            <FormControl inline type="text" className={status} value={this.state.name} readOnly></FormControl>
+                        </FormGroup>
+                    </Form>
                 </div>
                 <div className="col-lg-2 todo-button">
                     <Button bsStyle="link" onClick={ this._deleteTodo }>
