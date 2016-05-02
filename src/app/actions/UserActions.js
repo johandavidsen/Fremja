@@ -18,11 +18,15 @@ class UserActions {
     }
 
     /**
-     * @method localLogin
+     * @method bootstrap
      *
      */
-    localLogin(){
+    bootstrap(){
+        let token = localStorage.getItem('access_token');
+        // @TODO: If token exists then setToken.
+        if( token ){
 
+        }
     }
 
     /**

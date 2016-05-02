@@ -4,6 +4,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
 import { SignIn, Todos, PageNotFound } from './routes';
 
+import { UserActions } from './actions';
 import { UserStore } from './stores';
 
 // Little authorization function.
@@ -15,6 +16,9 @@ function requireAuth(nextState, replace) {
         replace('/signin');
     }
 }
+
+// Before window load, bootstrap the user from localStorage.
+UserActions.bootstrap();
 
 /**
  * @function Window.onload
