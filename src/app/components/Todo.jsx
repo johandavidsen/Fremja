@@ -69,9 +69,9 @@ export default class Todo extends React.Component {
 
         return (
             <div className="row">
-                <div className="col-lg-10 todo-input">
+                <div className=" todo-input">
                     <Form inline>
-                        <FormGroup>
+                        <FormGroup className="col-lg-10">
                             <Checkbox inline checked={ this.state.done } onChange={ this._updateTodo } ></Checkbox>
                             <FormControl inline type="text" className={status} value={this.state.name} readOnly></FormControl>
                         </FormGroup>

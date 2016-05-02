@@ -167,7 +167,7 @@ export default class Todos extends React.Component {
         return(
             <div className="todo-app">
                 {todos}
-                <div className="row">
+                <div className="row todo-input-holder">
                     <div className="col-lg-10 todo-input">
                         <FormGroup controlId="todoName">
                             <FormControl
