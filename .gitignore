@@ -1,3 +1,4 @@
 public/js/bundle.js
 public/style/main.css
 node_modules
+src/config/index.js

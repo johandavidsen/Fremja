@@ -1,6 +1,8 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
+import config from '../../config';
+
 /**
  * @class SignIn
  *
@@ -24,6 +26,10 @@ export default class SignIn extends React.Component {
      */
     render(){
 
+        let url =   'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id='
+                    +  config.app_key +
+                    '\&redirect_uri\=http://localhost:3000';
+
         return (
             <div className="app-signin">
                 <div className="row">
@@ -37,7 +43,7 @@ export default class SignIn extends React.Component {
                     <div className="col-lg-4">
                     </div>
                     <div className="col-lg-4" >
-                        <Button href="https://www.dropbox.com/oauth2/authorize?response_type=token&client_id=rvupm3oi3e4pujo&redirect_uri=http://localhost:3000">DropBox</Button>
+                        <Button href={url}>DropBox</Button>
                     </div>
                     <div className="col-lg-4" >
                     </div>

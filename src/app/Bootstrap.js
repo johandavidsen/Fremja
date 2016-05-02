@@ -9,6 +9,8 @@ import { UserStore } from './stores';
 // Little authorization function.
 function requireAuth(nextState, replace) {
 
+    // @TODO: the state dosen't get updated quickly enough.
+    // Maybe NProgess would help.
     if (UserStore.getState().accessToken === null) {
         replace('/signin');
     }

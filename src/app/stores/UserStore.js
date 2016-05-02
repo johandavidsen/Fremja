@@ -17,22 +17,42 @@ class UserStore {
     constructor() {
         // Bind listeners
         this.bindListeners({
-                setToken: UserActions.SET_TOKEN
+                setToken: UserActions.SET_TOKEN,
+                removeToken: UserActions.LOGOUT
             }
         );
 
-        // State
-        this.accessToken = null;
-        this.refreshToken = null;
-        this.user = null;
-        this.error = null;
+        this.on('init', () => {
+
+                // State
+                let token = localStorage.getItem('access_token');
+                if(token){
+                    this.accessToken = token;
+                } else {
+                    this.accessToken = null;
+                }
+                this.refreshToken = null;
+                this.user = null;
+                this.error = null;
+            }
+        );
     }
 
     /**
      *
      */
     setToken( params ){
-        this.accessToken = params.accessToken[0].value;
+        let token = params.accessToken[0].value;
+        this.setState({ access_token: token });
+        localStorage.setItem('access_token', token);
+    }
+
+    /**
+     *
+     */
+    removeToken(){
+        localStorage.clear();
+        this.setState({ accessToken: null });
     }
 }
 

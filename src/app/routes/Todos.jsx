@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
 import { Todo } from '../components';
 
-import { TodosActions } from '../actions';
+import { TodosActions, UserActions } from '../actions';
 import { TodosStore } from '../stores';
 
 /**
@@ -34,6 +34,8 @@ export default class Todos extends React.Component {
         this.state.newTodo = "";
 
         this._onChange = this._onChange.bind(this);
+
+        this._signOut = this._signOut.bind(this);
 
         this._addTodo = this._addTodo.bind(this);
         this._onEnter = this._onEnter.bind(this);
@@ -151,6 +153,14 @@ export default class Todos extends React.Component {
     }
 
     /**
+     *
+     */
+    _signOut(){
+        // @TODO: need to update react-router. 
+        UserActions.logout();
+    }
+
+    /**
      * @method render
      *
      * This method is called by the React framework and returns a valid JSX structure.
@@ -166,6 +176,9 @@ export default class Todos extends React.Component {
 
         return(
             <div className="todo-app">
+                <div className="row">
+                    <Button onClick={this._signOut}>Signout</Button>
+                </div>
                 {todos}
                 <div className="row todo-input-holder">
                     <div className="col-lg-10 todo-input">

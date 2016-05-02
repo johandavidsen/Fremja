@@ -55,7 +55,7 @@ class UserActions {
             }
         );
 
-        return { accessToken, tokenType, uid};
+        return { accessToken, tokenType, uid };
     }
 
     /**
@@ -71,7 +71,7 @@ class UserActions {
      *
      */
     logout(){
-
+        return { };
     }
 }
 
