@@ -44,6 +44,7 @@ export default class PageNotFound extends React.Component {
                 element = { key: values[0], value: values[1]};
                 array[index] = element;
             });
+            console.log(params);
             // Update store
             UserActions.setToken(params);
             // Go to Root.

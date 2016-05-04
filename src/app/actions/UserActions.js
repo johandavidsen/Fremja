@@ -10,14 +10,6 @@ import request from 'superagent';
 class UserActions {
 
     /**
-     * @method login
-     *
-     */
-    login(){
-
-    }
-
-    /**
      * @method bootstrap
      *
      */
@@ -25,7 +17,9 @@ class UserActions {
         let token = localStorage.getItem('access_token');
         // @TODO: If token exists then setToken.
         if( token ){
-
+            return this.setToken([ { key: "access_token", value: token } ]);
+        } else {
+            return {};
         }
     }
 
