@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
-import { SignIn, Todos, PageNotFound } from './routes';
+import { SignIn, Overview, Todos, PageNotFound } from './routes';
 
 import { UserActions } from './actions';
 import { UserStore } from './stores';
@@ -34,7 +34,7 @@ window.onload = () => {
     ReactDOM.render(
         <Router history={hashHistory}>
             <Route path="/" >
-                <IndexRoute component={ Todos } onEnter={requireAuth} />
+                <IndexRoute component={ Overview } onEnter={requireAuth} />
                 <Route path="/signin" component={ SignIn } />
             </Route>
              <Route path="*" component={ PageNotFound } />
