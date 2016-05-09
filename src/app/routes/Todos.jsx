@@ -42,6 +42,7 @@ export default class Todos extends React.Component {
         this._inputChange = this._inputChange.bind(this);
         this._updateTodo = this._updateTodo.bind(this);
         this._removeTodo = this._removeTodo.bind(this);
+        this._validationState = this._validationState.bind(this);
     }
 
     /**
@@ -156,8 +157,20 @@ export default class Todos extends React.Component {
      *
      */
     _signOut(){
-        // @TODO: need to update react-router. 
+        // @TODO: need to update react-router.
         UserActions.logout();
+    }
+
+    /**
+     *
+     */
+    _validationState(){
+        let length = this.state.newTodo.length;
+        console.log(this.state.newTodo);
+        console.log(this.state.newTodo.length);
+        if (length > 6) return 'success';
+        else if (length > 3) return 'warning';
+        else if (length > 0) return 'error';
     }
 
     /**
@@ -182,7 +195,7 @@ export default class Todos extends React.Component {
                 {todos}
                 <div className="row todo-input-holder">
                     <div className="col-lg-10 todo-input">
-                        <FormGroup controlId="todoName">
+                        <FormGroup controlId="todoName" validationState={this._validationState()}>
                             <FormControl
                                 type="text"
                                 placeholder="Enter todo"
