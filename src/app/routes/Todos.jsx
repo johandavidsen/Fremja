@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
-import { Todo } from '../components';
+import { Todo, Nav } from '../components';
 
 import { TodosActions, UserActions } from '../actions';
 import { TodosStore } from '../stores';
@@ -189,6 +189,7 @@ export default class Todos extends React.Component {
 
         return(
             <div className="todo-app">
+                <Nav />
                 <div className="row">
                     <Button onClick={this._signOut}>Signout</Button>
                 </div>
