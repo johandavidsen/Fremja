@@ -1,6 +1,9 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
+import connectToStores from 'alt-utils/lib/connectToStores';
+
+import { UserStore } from '../stores';
 import config from '../../config';
 
 /**
@@ -14,7 +17,21 @@ import config from '../../config';
  * @author Jóhan Davidsen <johan.davidsen@fjakkarin.com>
  *
  */
-export default class SignIn extends React.Component {
+class SignIn extends React.Component {
+
+    /**
+     *
+     */
+    static getStores() {
+        return [UserStore];
+    }
+
+    /**
+     *
+     */
+    static getPropsFromStores() {
+        return UserStore.getState();
+    }
 
     /**
      * @constructor
@@ -36,7 +53,7 @@ export default class SignIn extends React.Component {
 
         let url =   'https://www.dropbox.com/oauth2/authorize?response_type=token&client_id='
                     +  config.app_key +
-                    '\&redirect_uri\=http://localhost:3000';
+                    '\&redirect_uri\=http://localhost:3000/';
 
         return (
             <div>
@@ -68,5 +85,6 @@ export default class SignIn extends React.Component {
             </div>
         )
     }
-
 }
+
+export default connectToStores(SignIn);
