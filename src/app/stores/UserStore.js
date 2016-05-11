@@ -19,6 +19,7 @@ class UserStore {
         this.bindListeners({
                 setToken: UserActions.SET_TOKEN,
                 removeToken: UserActions.LOGOUT,
+                removeToken: UserActions.BOOTSTRAP,
                 getUser: UserActions.GET_USER
             }
         );

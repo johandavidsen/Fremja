@@ -14,8 +14,7 @@ class UserActions {
      *
      */
     bootstrap(){
-
-        return this.logout();
+        return { }
     }
 
     /**
@@ -72,8 +71,17 @@ class UserActions {
      * @method logout
      *
      */
-    logout(){
-        return { };
+    logout( token ) {
+        return (dispatch) => {
+            request
+                .post('https://api.dropboxapi.com/2/auth/token/revoke')
+                .set('Authorization', 'Bearer ' + token)
+                .set('Accept', 'application/json')
+                .end( ( err, res) => {
+                        dispatch();
+                    }
+                );
+        }
     }
 }
 
