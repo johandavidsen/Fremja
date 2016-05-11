@@ -1,5 +1,6 @@
 import React from 'react';
 import { Nav } from '../components';
+import Loader from 'react-loaders'
 
 import connectToStores from 'alt-utils/lib/connectToStores';
 
@@ -56,10 +57,16 @@ class Overview extends React.Component {
      *
      */
     render(){
+
+        let nav = (<Nav />);
+        if(this.props.user){
+            nav = (<Nav user={this.props.user.name.display_name}/>)
+        }
+
         return (
             <div>
-                <Nav />
-
+                {nav}
+                <Loader type="ball-clip-rotate-pulse" active={true} />
             </div>
         )
     }
