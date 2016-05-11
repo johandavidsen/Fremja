@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
 
-import { SignIn, Overview, Todos, PageNotFound } from './routes';
+import { SignIn, Overview, Todos, PageNotFound, DropboxCallback } from './routes';
 
 import { UserActions } from './actions';
 import { UserStore } from './stores';
 
 // Little authorization function.
-function requireAuth(nextState, replace) {
+function requireAuth(nextState, replaceState) {
 
     // @TODO: the state dosen't get updated quickly enough.
     // Maybe NProgess would help.
     if (UserStore.getState().accessToken === null) {
-        replace('/signin');
+        replaceState('auth/signin');
     }
 }
 
@@ -31,13 +31,15 @@ UserActions.bootstrap();
  *
  */
 window.onload = () => {
+
     ReactDOM.render(
         <Router history={hashHistory}>
             <Route path="/" >
                 <IndexRoute component={ Overview } onEnter={requireAuth} />
-                <Route path="/signin" component={ SignIn } />
+                <Route path="auth/signin" component={ SignIn } />
+                <Route path="auth/dropbox/callback" component={ DropboxCallback } />
             </Route>
-             <Route path="*" component={ PageNotFound } />
+            <Route path="*" component={ PageNotFound } />
         </Router>
         , document.getElementById('container')
     );

@@ -18,7 +18,8 @@ class UserStore {
         // Bind listeners
         this.bindListeners({
                 setToken: UserActions.SET_TOKEN,
-                removeToken: UserActions.LOGOUT
+                removeToken: UserActions.LOGOUT,
+                getUser: UserActions.GET_USER
             }
         );
 
@@ -43,8 +44,8 @@ class UserStore {
      */
     setToken( params ){
         let token = params.accessToken[0].value;
-        this.setState({ access_token: token });
-        localStorage.setItem('access_token', token);
+        this.setState({ accessToken: token });
+        localStorage.setItem('accessToken', token);
     }
 
     /**
@@ -53,6 +54,10 @@ class UserStore {
     removeToken(){
         localStorage.clear();
         this.setState({ accessToken: null });
+    }
+
+    getUser( userObject ){
+        this.setState({ user: userObject });
     }
 }
 

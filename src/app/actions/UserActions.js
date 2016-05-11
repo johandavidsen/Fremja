@@ -14,13 +14,8 @@ class UserActions {
      *
      */
     bootstrap(){
-        let token = localStorage.getItem('access_token');
-        // @TODO: If token exists then setToken.
-        if( token ){
-            return this.setToken([ { key: "access_token", value: token } ]);
-        } else {
-            return {};
-        }
+
+        return this.logout();
     }
 
     /**
@@ -56,12 +51,21 @@ class UserActions {
         return { accessToken, tokenType, uid };
     }
 
-    /**
-     * @method refreshToken
-     *
-     */
-    refreshToken(){
+    getUser( token ){
+        return (dispatch) => {
+            request
+                .post('https://api.dropboxapi.com/2/users/get_current_account')
+                .set('Authorization', 'Bearer ' + token)
+                .set('Accept', 'application/json')
+                .end( ( err, res) => {
+                        if (err || !res.ok) {
 
+                        } else {
+                            dispatch(res.body);
+                        }
+                    }
+                );
+        }
     }
 
     /**

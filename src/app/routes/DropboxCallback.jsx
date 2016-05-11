@@ -30,9 +30,9 @@ export default class DropboxCallback extends React.Component {
         UserStore.listen(this._onChange);
 
         let params = [
-            { key: "access_token", value: this.location.query.access_token },
-            { key: "token_type", value: this.location.query.token_type },
-            { key: "uid", value: this.location.query.uid }
+            { key: "access_token", value: this.props.location.query.access_token },
+            { key: "token_type", value: this.props.location.query.token_type },
+            { key: "uid", value: this.props.location.query.uid }
         ]
         // // Update store
         UserActions.setToken(params);
@@ -42,10 +42,9 @@ export default class DropboxCallback extends React.Component {
      *
      */
     componentWillUpdate( nextProps, nextState){
-        console.log(nextState);
-        if( nextState ) {
+        if( nextState.accessToken ) {
             // Go to Root.
-            // this.context.router.push("/");
+            this.context.router.push("/");
         }
     }
 

@@ -30,7 +30,14 @@ export default class Nav extends React.Component {
             <nav className="navbar">
                 <a className="navbar-brand" href="#">Fremja</a>
                 <div className="nav navbar-nav">
-                    <a className="nav-item nav-link active" href="#">Home <span className="sr-only">(current)</span></a>
+                    <a className="nav-item nav-link active" href="#">
+                        johandavidsen
+                    </a>
+                </div>
+                <div className="nav navbar-nav pull-xs-right">
+                    <a className="nav-item nav-link active" href="#">
+                        Options
+                    </a>
                 </div>
             </nav>
         );
