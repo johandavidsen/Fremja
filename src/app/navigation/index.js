@@ -19,9 +19,6 @@ export default () => (
                 <li className="nav-item active">
                     <Link className="nav-link" to="heima">Heima</Link>
                 </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to="uppsetan">Uppsetan</Link>
-                </li>
             </ul>
         </div>
     </nav>
