@@ -9,21 +9,11 @@
     "start": "node --es_staging index.js",
     "test": "test"
   },
-  "author": "Johan Davidsen",
+  "author": "Jóhan Davidsen <johan.davidsen@fjakkarin.com>",
   "license": "MIT",
   "dependencies": {
-    "alt": "^0.18.4",
-    "body-parser": "^1.15.0",
-    "express": "^4.13.4",
-    "express-session": "^1.13.0",
-    "loaders.css": "^0.1.2",
-    "mongoose": "^4.4.10",
-    "react": "^15.0.1",
-    "react-bootstrap": "^0.29.2",
-    "react-dom": "^15.0.1",
     "react-loaders": "^2.1.0",
-    "react-router": "^2.3.0",
-    "superagent": "^1.8.3"
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "ava": "^0.14.0",
@@ -31,10 +21,26 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babelify": "^7.3.0",
+    "body-parser": "^1.18.2",
+    "bootstrap": "^4.1.0",
     "browserify": "^13.0.0",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "github-api": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-less": "^3.0.5",
+    "gulp-sass": "^4.0.1",
+    "jquery": "^3.3.1",
+    "loaders.css": "^0.1.2",
     "nodemon": "^1.9.1",
+    "popper.js": "^1.14.3",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "redux": "^4.0.0",
+    "superagent": "^1.8.5",
     "vinyl-source-stream": "^1.1.0"
   }
 }
