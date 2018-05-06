@@ -1,7 +1,7 @@
 var babelify    = require('babelify');
 var browserify  = require('browserify');
 var gulp        = require('gulp');
-var less        = require('gulp-less');
+var sass        = require('gulp-sass');
 var source      = require('vinyl-source-stream');
 
 gulp.task('build:public', ['style'], function() {
@@ -18,7 +18,7 @@ gulp.task('build:public', ['style'], function() {
 });
 
 gulp.task("style", function(){
-    return gulp.src('src/stylesheet/main.less')
-        .pipe(less())
+    return gulp.src('src/stylesheet/fremja.scss')
+        .pipe(sass())
         .pipe(gulp.dest('./public/style'));
 });
