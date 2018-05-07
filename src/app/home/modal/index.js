@@ -62,7 +62,7 @@ class Modal extends React.Component {
                                 </label>
                                 <input id="title"
                                        type="text"
-                                       className="form-control"
+                                       className="form-control input-custom"
                                        placeholder="Heitið"
                                        value={this.state.task}
                                        onChange={this.updateTask} />
@@ -83,6 +83,7 @@ class Modal extends React.Component {
                             <button
                                 type="button"
                                 className="btn btn-light button-custom"
+                                data-dismiss="modal"
                                 onClick={this.createTask}
                             >
                                 Upprætta uppgávu
