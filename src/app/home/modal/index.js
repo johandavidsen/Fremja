@@ -8,21 +8,27 @@ class Modal extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            task: ''
+            task: '',
+            description: ''
         }
 
         this.createTask = this.createTask.bind(this)
         this.updateTask = this.updateTask.bind(this)
+        this.updateDescription = this.updateDescription.bind(this)
     }
 
     updateTask (event) {
-        this.setState({ task: event.target.value });
+        this.setState({ task: event.target.value})
+    }
+
+    updateDescription (event) {
+        this.setState({ description: event.target.value })
     }
 
     createTask () {
-        const { dispatch } = this.props
-        dispatch(addTodo(this.state.task))
-        this.setState({ task: '' })
+        const {dispatch} = this.props
+        dispatch(addTodo({ title: this.state.task, description: this.state.description }))
+        this.setState({task: '', description: ''})
     }
 
     render () {
@@ -50,18 +56,35 @@ class Modal extends React.Component {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <input  type="text"
-                                    className="form-control"
-                                    placeholder="Heitið"
-                                    value={this.state.task}
-                                    onChange={this.updateTask} />
+                            <div className="form-group">
+                                <label htmlFor="title">
+                                    Navn á uppgávu
+                                </label>
+                                <input id="title"
+                                       type="text"
+                                       className="form-control"
+                                       placeholder="Heitið"
+                                       value={this.state.task}
+                                       onChange={this.updateTask} />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="description">
+                                    Nærri lýsing
+                                </label>
+                                <textarea className="form-control"
+                                          id="description"
+                                          rows="3"
+                                          value={this.state.description}
+                                          onChange={this.updateDescription}
+                                />
+                            </div>
                         </div>
                         <div className="modal-footer">
                             <button
                                 type="button"
                                 className="btn btn-light button-custom"
                                 onClick={this.createTask}
-                                >
+                            >
                                 Upprætta uppgávu
                             </button>
                         </div>

@@ -28,13 +28,11 @@ class TaskBox extends React.Component {
 
 TaskBox.propTypes = {
     title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired
 }
 
 TaskBox.defaultProps = {
     title: 'Task',
-    content: 'Your task is to do something.',
     date: '2018-09-20'
 }
 

@@ -1,5 +1,8 @@
 import { combineReducers } from 'redux'
 
+/** Application Model */
+import Task from './Task'
+
 /** Actions */
 let nextTodoId = 0
 
@@ -7,12 +10,12 @@ let nextTodoId = 0
  * Add a new todo
  *
  * @param text
+ * @param description
  * @returns {{type: string, id: number, text: *}}
  */
-export const addTodo = text => ({
+export const addTodo = ({ title, description }) => ({
     type: 'ADD_TODO',
-    id: nextTodoId++,
-    text
+    task: new Task(nextTodoId++, title, description)
 })
 
 /**
@@ -38,11 +41,7 @@ const todos = (state = [], action) => {
         case 'ADD_TODO':
             return [
                 ...state,
-                {
-                    id: action.id,
-                    text: action.text,
-                    completed: false
-                }
+               action.task
             ]
         case 'TOGGLE_TODO':
             return state.map(todo =>
