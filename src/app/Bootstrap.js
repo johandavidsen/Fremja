@@ -21,7 +21,7 @@ const App = () => (
 /**
  * @function Window.onload
  *
- * This function is used by the Browserify library to build the client-side
+ * This function is used by the Browserify library to mount the client-side
  * application.
  *
  * @since 0.1.0
