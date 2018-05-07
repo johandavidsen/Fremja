@@ -12,9 +12,9 @@ const Grid = ({ tasks }) => (
                 title={task.title}
                 content={task.description}
                 date={
-                    task.createdDate.getDate() + '-'
-                    + task.createdDate.getMonth() + '-'
-                    + task.createdDate.getFullYear()
+                    task.meta.createdDate.getDate() + '-'
+                    + task.meta.createdDate.getMonth() + '-'
+                    + task.meta.createdDate.getFullYear()
                 }
             />
         )}

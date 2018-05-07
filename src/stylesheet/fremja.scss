@@ -40,9 +40,9 @@ $modal-header-border-width:         0px;
 $modal-footer-border-width:         1px;
 
 
-  /**
-   * Application specific classes
-   */
+/**
+ * Application specific classes
+ */
 .fade-color {
   min-height: 100vh;
   height: 100%;
@@ -53,6 +53,10 @@ $modal-footer-border-width:         1px;
   background: linear-gradient(to bottom right, $bg-blue, $bg-green); /* Standard syntax */
 }
 
+.card-columns {
+  height: calc(100vh - 156px);
+  overflow: scroll;
+}
 
 .card-custom {
   background-color: rgba(255,255,255,0.1);
@@ -60,6 +64,11 @@ $modal-footer-border-width:         1px;
 
 .button-custom {
   background: rgba(255, 255, 255, 0);
+  color: white;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
 }
 
 .toolbar-holder {
