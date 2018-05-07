@@ -6,6 +6,6 @@ let app         = express();
 app.use(express.static('./public'));
 
 // Serve
-app.listen(3000, () => {
+app.listen(3002, () => {
     console.log('Todo application running on port 3000!');
 });
