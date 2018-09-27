@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import Grid from './Grid'
 
 const mapStateToProps = state => ({
-    tasks: state.todos
+    tasks: state.tasks
 })
 
 export default connect(

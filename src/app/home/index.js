@@ -1,12 +1,26 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, compose, combineReducers } from 'redux'
+
+/** Database */
+import { persistentStore } from 'redux-pouchdb-plus';
+import PouchDB from 'pouchdb'
+const db = new PouchDB('application')
 
 /** Application State */
-import tasksReducer from '../tasks'
+import tasks from '../tasks'
+
+const reducers = combineReducers({
+    tasks: tasks
+})
 
 /** Create the store */
-const store = createStore(tasksReducer)
+const store = createStore(
+    reducers,
+    compose(
+        persistentStore({ db })
+    )
+)
 
 /** Application Container */
 import TasksGrids from './grid'

@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { persistentReducer } from 'redux-pouchdb-plus';
 
 /** Application Model */
 import Task from './Task'
@@ -57,6 +57,4 @@ const todos = (state = [], action) => {
 /**
  * The is the combined reducer for the todos
  */
-export default combineReducers({
-    todos
-})
+export default persistentReducer(todos, { name: 'todos' })
