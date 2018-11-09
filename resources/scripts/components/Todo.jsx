@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, FormControl, Checkbox, Button } from 'react-bootstrap';
+//import { Form, FormGroup, FormControl, Checkbox, Button } from 'react-bootstrap';
 
 /**
  * @class Todo
@@ -22,9 +22,9 @@ export default class Todo extends React.Component {
      */
     constructor( props ){
         super( props );
-        this.state = this.props.object;
+  /*      this.state = this.props.object;
         this._deleteTodo = this._deleteTodo.bind(this);
-        this._updateTodo = this._updateTodo.bind(this);
+        this._updateTodo = this._updateTodo.bind(this);*/
     }
 
     /**
@@ -36,8 +36,8 @@ export default class Todo extends React.Component {
      *
      */
     _updateTodo(){
-        this.setState({ done: !this.state.done });
-        this.props.update(this.state);
+        //this.setState({ done: !this.state.done });
+        //this.props.update(this.state);
     }
 
     /**
@@ -49,7 +49,7 @@ export default class Todo extends React.Component {
      *
      */
     _deleteTodo(){
-        this.props.delete(this.props.object._id)
+        //this.props.delete(this.props.object._id)
     }
 
     /**
@@ -63,24 +63,24 @@ export default class Todo extends React.Component {
     render( ){
 
         let status = "";
-        if(this.state.done){
+        /*if(this.state.done){
             status = "checked";
-        }
+        }*/
 
         return (
             <div className="row">
                 <div className=" todo-input">
-                    <Form inline>
+                    {/*<Form inline>
                         <FormGroup className="col-lg-10">
                             <Checkbox inline checked={ this.state.done } onChange={ this._updateTodo } ></Checkbox>
                             <FormControl inline type="text" className={status} value={this.state.name} readOnly></FormControl>
                         </FormGroup>
-                    </Form>
+                    </Form>*/}
                 </div>
                 <div className="col-lg-2 todo-button">
-                    <Button bsStyle="link" onClick={ this._deleteTodo }>
+                    {/*<Button bsStyle="link" onClick={ this._deleteTodo }>
                         <i className="fa fa-minus"></i>
-                    </Button>
+                    </Button>*/}
                 </div>
             </div>
         );
@@ -90,15 +90,15 @@ export default class Todo extends React.Component {
 /**
  * Specifies the property types.
  */
-Todo.propTypes = {
+/*Todo.propTypes = {
     object: React.PropTypes.object,
     callback: React.PropTypes.func
-}
+}*/
 
 /**
  * Set the default properties.
  */
-Todo.defaultProps = {
+/*Todo.defaultProps = {
     object: {},
     callback: () => {}
-}
+}*/

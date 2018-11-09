@@ -1,10 +1,10 @@
 import React from 'react';
-import { FormGroup, FormControl, Button } from 'react-bootstrap';
+//import { FormGroup, FormControl, Button } from 'react-bootstrap';
 
 import { Todo } from '../components';
 
-import { TodosActions, UserActions } from '../actions';
-import { TodosStore } from '../stores';
+//import { TodosActions, UserActions } from '../actions';
+//import { TodosStore } from '../stores';
 
 /**
  * @class Todos
@@ -30,7 +30,7 @@ export default class Todos extends React.Component {
      */
     constructor( props ){
         super( props );
-        this.state = TodosStore.getState();
+        /*this.state = TodosStore.getState();
         this.state.newTodo = "";
 
         this._onChange = this._onChange.bind(this);
@@ -41,7 +41,7 @@ export default class Todos extends React.Component {
         this._onEnter = this._onEnter.bind(this);
         this._inputChange = this._inputChange.bind(this);
         this._updateTodo = this._updateTodo.bind(this);
-        this._removeTodo = this._removeTodo.bind(this);
+        this._removeTodo = this._removeTodo.bind(this);*/
     }
 
     /**
@@ -54,8 +54,8 @@ export default class Todos extends React.Component {
      *
      */
     componentDidMount(){
-        TodosActions.getAllTodos();
-        TodosStore.listen(this._onChange);
+        /*TodosActions.getAllTodos();
+        TodosStore.listen(this._onChange);*/
     }
 
     /**
@@ -68,7 +68,7 @@ export default class Todos extends React.Component {
      *
      */
     componentWillUnmount() {
-        TodosStore.unlisten(this._onChange);
+        //TodosStore.unlisten(this._onChange);
     }
 
     /**
@@ -94,9 +94,9 @@ export default class Todos extends React.Component {
      */
     _onEnter( event ){
         if(event.key === 'Enter'){
-            let todo = this.state.newTodo;
+            /*let todo = this.state.newTodo;
             TodosActions.newTodo( todo );
-            this.setState({ newTodo: ""});
+            this.setState({ newTodo: ""});*/
         }
     }
 
@@ -104,7 +104,7 @@ export default class Todos extends React.Component {
      *
      */
     _inputChange( event ){
-        this.setState({ newTodo: event.target.value});
+       // this.setState({ newTodo: event.target.value});
     }
 
     /**
@@ -119,9 +119,9 @@ export default class Todos extends React.Component {
      */
     _addTodo( value ){
         // Use the newTodo state value.
-        let todo = this.state.newTodo;
+        /*let todo = this.state.newTodo;
         TodosActions.newTodo( todo );
-        this.setState({ newTodo: ""});
+        this.setState({ newTodo: ""});*/
     }
 
     /**
@@ -135,7 +135,7 @@ export default class Todos extends React.Component {
      *
      */
     _updateTodo( object ){
-        TodosActions.updateTodo( object );
+//        TodosActions.updateTodo( object );
     }
 
     /**
@@ -149,7 +149,7 @@ export default class Todos extends React.Component {
      *
      */
     _removeTodo( id ){
-        TodosActions.removeTodo( id );
+ //       TodosActions.removeTodo( id );
     }
 
     /**
@@ -157,7 +157,7 @@ export default class Todos extends React.Component {
      */
     _signOut(){
         // @TODO: need to update react-router. 
-        UserActions.logout();
+   //     UserActions.logout();
     }
 
     /**
@@ -170,19 +170,20 @@ export default class Todos extends React.Component {
      */
     render(){
 
-        let todos = this.state.todos.map(( element ) => {
+        let todos = [] 
+        /*= this.state.todos.map(( element ) => {
             return (<Todo key={element._id} object={ element } update={this._updateTodo} delete={ this._removeTodo } />);
-        });
+        });*/
 
         return(
             <div className="todo-app">
                 <div className="row">
-                    <Button onClick={this._signOut}>Signout</Button>
+                    {/* <Button onClick={this._signOut}>Signout</Button> */}
                 </div>
                 {todos}
                 <div className="row todo-input-holder">
                     <div className="col-lg-10 todo-input">
-                        <FormGroup controlId="todoName">
+                        {/* <FormGroup controlId="todoName">
                             <FormControl
                                 type="text"
                                 placeholder="Enter todo"
@@ -191,11 +192,13 @@ export default class Todos extends React.Component {
                                 onChange={this._inputChange}>
                             </FormControl>
                         </FormGroup>
+                        */}
                     </div>
                     <div className="col-lg-2 todo-button" >
-                        <Button bsStyle="link" onClick={this._addTodo}>
+                        {/* <Button bsStyle="link" onClick={this._addTodo}>
                             <i className="fa fa-plus"></i>
                         </Button>
+                        */}
                     </div>
                 </div>
             </div>

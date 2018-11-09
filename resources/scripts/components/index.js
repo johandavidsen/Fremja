@@ -8,4 +8,10 @@
  * @author Jóhan Davidsen <johan.davidsen@fjakkarin.com>
  *
  */
-export Todo from "./Todo";
+import Todo from './Todo';
+
+export default function () {
+    return {
+        'Todo': Todo
+    };
+}
