@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Todo } from '../components';
 
-//import { TodosActions, UserActions } from '../actions';
+//import { TodosActions } from '../actions';
 //import { TodosStore } from '../stores';
 
 /**
@@ -153,14 +153,6 @@ export default class Todos extends React.Component {
     }
 
     /**
-     *
-     */
-    _signOut(){
-        // @TODO: need to update react-router. 
-   //     UserActions.logout();
-    }
-
-    /**
      * @method render
      *
      * This method is called by the React framework and returns a valid JSX structure.
@@ -177,12 +169,22 @@ export default class Todos extends React.Component {
 
         return(
             <div className="todo-app">
-                <div className="row">
-                    {/* <Button onClick={this._signOut}>Signout</Button> */}
-                </div>
                 {todos}
                 <div className="row todo-input-holder">
                     <div className="col-lg-10 todo-input">
+                        <div className="input-group mb-3">
+                            <input type="text" 
+                                className="form-control" 
+                                placeholder="Recipient's username" 
+                                aria-label="Recipient's username" 
+                                aria-describedby="button-addon2" ></input>
+                            <div className="input-group-append">
+                                <button className="btn btn-outline-secondary" 
+                                    type="button" 
+                                    id="button-addon2">Button</button>
+                            </div>
+                        </div>
+                        
                         {/* <FormGroup controlId="todoName">
                             <FormControl
                                 type="text"
@@ -192,12 +194,6 @@ export default class Todos extends React.Component {
                                 onChange={this._inputChange}>
                             </FormControl>
                         </FormGroup>
-                        */}
-                    </div>
-                    <div className="col-lg-2 todo-button" >
-                        {/* <Button bsStyle="link" onClick={this._addTodo}>
-                            <i className="fa fa-plus"></i>
-                        </Button>
                         */}
                     </div>
                 </div>
