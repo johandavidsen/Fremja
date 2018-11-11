@@ -10,35 +10,26 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
         <!-- Custom CSS-->
-        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/app.css">
     
     </head>
-    <body>
-        <div class="container-fluid fade-color">
+    <body class="container-fluid fade-color">
+        <div id="app"></div>
+        <noscript>
+            <nav class="navbar fixed-top navbar-expand-lg navbar-light navbar-app">
+                <a class="navbar-brand" href="/">Fremja</a>
+            </nav>
             <div class="row">
                 <div class="col-lg-4"></div>
-                <div class="col-lg-4">
-                    <div class="page-header">
-                        <h1>Fremja <small >by <a href="http://www.fjakkarin.com" target="_blank" >Fjakkarin.com</a></small></h1>
+                <div class="col-lg-4" style="height: 100vh; padding-top: 40%;">
+                    <div class=align-middle>
+                        This page requires that JavaScript is enabled. Please enable it
+                        and reload the page.                    
                     </div>
                 </div>
                 <div class="col-lg-4"></div>
             </div>
-            <noscript>
-                <div class="row">
-                    <div class="col-lg-4"></div>
-                    <div class="col-lg-4">
-                        This page requires that JavaScript is enabled.
-                    </div>
-                    <div class="col-lg-4"></div>
-                </div>
-            </noscript>
-            <div class="row">
-                <div class="col-lg-4"></div>
-                <div id="container" class="col-lg-4"></div>
-                <div class="col-lg-4"></div>
-            </div>
-        </div>
+        </noscript>
         <script src="js/app.js"></script>
     </body>
 </html>

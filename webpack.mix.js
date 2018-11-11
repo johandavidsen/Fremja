@@ -13,7 +13,7 @@ let mix = require('laravel-mix');
 
 mix
     .react('resources/scripts/app.js', 'dist/js')
-    .sass('resources/styles/main.scss', 'dist/css')
+    .sass('resources/styles/app.scss', 'dist/css')
     .sourceMaps()
     .setPublicPath('dist')
     .copyDirectory('src', 'dist')
