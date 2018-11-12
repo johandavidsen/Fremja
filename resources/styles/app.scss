@@ -24,6 +24,32 @@ $navbar-light-toggler-border-color: rgba($white, .1) !default;
     font-family: 'Pacifico', cursive;
 }
 
+.route {
+    margin-top: 66px;
+    height: calc( 100vh - 66px);
+}
+
+@keyframes loading {
+    0%   {background-color: rgba(255,255,255, 0.2) }
+    50%  {background-color: rgba(255,255,255, 0.6) }
+    100% {background-color: rgba(255,255,255, 0.2) }
+}
+
+@-webkit-keyframes loading {
+    0%   {background-color: rgba(255,255,255, 0.2) }
+    50%  {background-color: rgba(255,255,255, 0.6) }
+    100%  {background-color: rgba(255,255,255, 0.2) }
+}
+
+.loading {
+    background-color: rgba(255,255,255, 0.2);
+    -webkit-animation-name: loading; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: loading;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
 .fade-color {
     min-height: 100vh;
     height: 100%;
